@@ -126,8 +126,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-  const s = value.toString();
-  return Number.parseInt(s.charAt(s.length - 1), 10);
+  return value % 10;
 }
 
 /**
@@ -453,10 +452,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  const type = typeof number;
-  return (
-    type === 'number' && number !== Infinity && Number.isNaN(number) === false
-  );
+  return Number.isFinite(number);
 }
 
 /**
@@ -576,7 +572,7 @@ function roundToNearestInteger(number) {
  * -5.5 => -5
  */
 function getIntegerPartNumber(number) {
-  return Number.parseInt(number, 10);
+  return Math.trunc(number);
 }
 
 /**
